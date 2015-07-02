@@ -138,11 +138,11 @@ inline pair<T*, ptrdiff_t> make_temporary_buffer (void* p, size_t n, const T* pt
 #if HAVE_ALLOCA_H
     /// \brief Allocates a temporary buffer, if possible.
     /// \ingroup RawStorageAlgorithms
-    #define get_temporary_buffer(size, ptype)	make_temporary_buffer (alloca(size_of_elements(size, ptype)), size, ptype)
-    #define return_temporary_buffer(p)
+    #define ustl_get_temporary_buffer(size, ptype)	make_temporary_buffer (alloca(size_of_elements(size, ptype)), size, ptype)
+    #define ustl_return_temporary_buffer(p)
 #else
-    #define get_temporary_buffer(size, ptype)	make_temporary_buffer (malloc(size_of_elements(size, ptype)), size, ptype)
-    #define return_temporary_buffer(p)		if (p) free (p), p = nullptr
+    #define ustl_get_temporary_buffer(size, ptype)	make_temporary_buffer (malloc(size_of_elements(size, ptype)), size, ptype)
+    #define ustl_return_temporary_buffer(p)		if (p) free (p), p = nullptr
 #endif
 
 /// Copies [first, last) into result by calling copy constructors in result.
