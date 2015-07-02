@@ -23,3 +23,4 @@ s/#define \(WANT_MMX\) 1/#undef \1/g
 s/#undef \(WANT_ALWAYS_INLINE\)/#define \1 1/g
 s/#define \(WITHOUT_LIBSTDCPP\) 1/#undef \1/g
 s/\(NOLIBSTDCPP\)/#\1/g
+s|:= .o/|:= lib-zynq/|g
